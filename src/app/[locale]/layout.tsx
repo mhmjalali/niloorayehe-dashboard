@@ -3,7 +3,40 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeConfig, routing } from "@/i18n/routing";
-import "../globals.css";
+import localFont from "next/font/local";
+import "@/styles/globals.css";
+
+const morabba = localFont({
+  src: [
+    {
+      path: "../fonts/morabba/woff2/Morabba-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/morabba/woff2/Morabba-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/morabba/woff2/Morabba-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/morabba/woff2/Morabba-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/morabba/woff2/Morabba-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-morabba",
+  display: "swap",
+});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -41,7 +74,11 @@ export default async function LocaleLayout({
   const { direction } = localeConfig[locale as keyof typeof localeConfig];
 
   return (
-    <html lang={locale} dir={direction} className="h-full antialiased">
+    <html
+      lang={locale}
+      dir={direction}
+      className={`h-full ${morabba.variable}`}
+    >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
