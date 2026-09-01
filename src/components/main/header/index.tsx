@@ -19,9 +19,7 @@ const Header = () => {
           <Menu size={15} />
         </Button>
       )}
-      <div>
-        <Image src="/logo/rmto.svg" alt="سامانه جامع راهداری" width={32} height={32} className="me-2 h-8 w-8" />
-      </div>
+      <div>{/* add change theme button and change language */}</div>
     </div>
   );
 };
