@@ -4,7 +4,9 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeConfig, routing } from "@/i18n/routing";
 import localFont from "next/font/local";
+import NextTopLoader from "nextjs-toploader";
 import "@/styles/globals.css";
+import { ThemeProvider } from "next-themes";
 
 const morabba = localFont({
   src: [
@@ -78,9 +80,17 @@ export default async function LocaleLayout({
       lang={locale}
       dir={direction}
       className={`h-full ${morabba.variable}`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+        >
+          <NextTopLoader color="var(--color-accent)" height={3} />
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -32,7 +32,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "primary",
         class:
-          "bg-primary hover:bg-primary-hover active:bg-primary-hover text-text-on-primary focus-visible:ring-primary/40",
+          "bg-primary text-background hover:brightness-110 active:brightness-95 focus-visible:ring-primary/40",
       },
       {
         variant: "outlined",
@@ -52,7 +52,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "secondary",
         class:
-          "bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-text-on-primary focus-visible:ring-secondary/40",
+          "bg-secondary text-background hover:brightness-110 active:brightness-95 focus-visible:ring-secondary/40",
       },
       {
         variant: "outlined",
@@ -72,7 +72,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "error",
         class:
-          "bg-error hover:bg-error-hover active:bg-error-hover text-text-on-primary focus-visible:ring-error/40",
+          "bg-error text-background hover:brightness-110 active:brightness-95 focus-visible:ring-error/40",
       },
       {
         variant: "outlined",
@@ -92,7 +92,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "warning",
         class:
-          "bg-warning hover:bg-warning-hover active:bg-warning-hover text-text-on-primary focus-visible:ring-warning/40",
+          "bg-warning text-background hover:brightness-110 active:brightness-95 focus-visible:ring-warning/40",
       },
       {
         variant: "outlined",
@@ -112,7 +112,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "success",
         class:
-          "bg-success hover:bg-success-hover active:bg-success-hover text-text-on-primary focus-visible:ring-success/40",
+          "bg-success text-background hover:brightness-110 active:brightness-95 focus-visible:ring-success/40",
       },
       {
         variant: "outlined",

@@ -6,6 +6,13 @@ body {
 
 @theme {
   --font-sans: var(--font-morabba), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: 44px;
+  --text-hero--line-height: 1.15;
+  --text-hero--letter-spacing: -0.01em;
+  --text-subtitle: 1rem;
+  --text-subtitle--line-height: 1.7;
+
   --color-primary: #0d3b2e;
   --color-secondary: #1a5645;
   --color-accent: #d9bc92;

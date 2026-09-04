@@ -27,7 +27,9 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
   const isActive = pathname === item.route;
   const isDescendantActive = hasChildren && isRouteActive(item, pathname);
 
-  const [manuallyExpanded, setManuallyExpanded] = useState<boolean | null>(null);
+  const [manuallyExpanded, setManuallyExpanded] = useState<boolean | null>(
+    null,
+  );
   const expanded = manuallyExpanded ?? isDescendantActive;
 
   const [flyoutOpen, setFlyoutOpen] = useState(false);
@@ -54,7 +56,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
     collapsed && "justify-center",
     isActive || isDescendantActive
       ? "bg-primary/10 text-primary"
-      : "text-text-secondary hover:bg-primary/10 hover:text-text-primary",
+      : "text-muted hover:bg-primary/10 hover:text-text",
   );
 
   const content = (
@@ -70,7 +72,9 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
         size={18}
         className={cn(
           "shrink-0 transition-colors",
-          isActive || isDescendantActive ? "text-primary" : "text-text-secondary group-hover:text-text-primary",
+          isActive || isDescendantActive
+            ? "text-primary"
+            : "text-muted group-hover:text-text",
         )}
       />
 
@@ -78,7 +82,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
         <span
           className={cn(
             "flex-1 overflow-hidden text-right text-sm font-medium whitespace-nowrap",
-            !(isActive || isDescendantActive) && "group-hover:text-text-primary",
+            !(isActive || isDescendantActive) && "group-hover:text-text",
           )}
         >
           {item.label}
@@ -86,13 +90,17 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
       )}
 
       {!collapsed && hasChildren && (
-        <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }} className="shrink-0">
+        <motion.div
+          animate={{ rotate: expanded ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="shrink-0"
+        >
           <ChevronDown size={14} />
         </motion.div>
       )}
 
       {collapsed && !hasChildren && (
-        <div className="pointer-events-none absolute right-full z-50 mr-2 rounded-md bg-gray-900 px-2.5 py-1.5 text-xs whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
+        <div className="pointer-events-none absolute right-full z-50 mr-2 rounded-md bg-text px-2.5 py-1.5 text-xs whitespace-nowrap text-background opacity-0 transition-opacity group-hover:opacity-100">
           {item.label}
         </div>
       )}
@@ -117,7 +125,11 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
       onMouseEnter={openFlyout}
       onMouseLeave={closeFlyout}
     >
-      <button type="button" onClick={() => !collapsed && setManuallyExpanded(!expanded)} className={baseClasses}>
+      <button
+        type="button"
+        onClick={() => !collapsed && setManuallyExpanded(!expanded)}
+        className={baseClasses}
+      >
         {content}
       </button>
 
@@ -133,7 +145,12 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
             >
               <ul className="mt-0.5 flex flex-col gap-0.5">
                 {item.children!.map((child) => (
-                  <NavItem key={child.key} item={child} collapsed={collapsed} depth={depth + 1} />
+                  <NavItem
+                    key={child.key}
+                    item={child}
+                    collapsed={collapsed}
+                    depth={depth + 1}
+                  />
                 ))}
               </ul>
             </motion.div>
@@ -158,11 +175,16 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
                   top: flyoutPos.top,
                   right: flyoutPos.right,
                 }}
-                className="z-100 min-w-50 rounded-lg border border-black/8 bg-white p-1.5 shadow-lg"
+                className="z-100 min-w-50 rounded-lg border border-text/10 bg-background p-1.5 shadow-lg"
               >
                 <ul className="flex flex-col gap-0.5">
                   {item.children!.map((child) => (
-                    <NavItem key={child.key} item={child} collapsed={false} depth={0} />
+                    <NavItem
+                      key={child.key}
+                      item={child}
+                      collapsed={false}
+                      depth={0}
+                    />
                   ))}
                 </ul>
               </motion.div>

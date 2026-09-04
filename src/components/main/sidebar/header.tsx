@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div
       className={cn(
-        "flex min-h-13 items-center border-b border-black/8",
+        "flex min-h-13 items-center border-b border-text/10",
         collapsed ? "justify-center" : "justify-between px-2",
       )}
     >

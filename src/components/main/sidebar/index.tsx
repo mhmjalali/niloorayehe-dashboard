@@ -27,7 +27,7 @@ const Sidebar = () => {
       initial={{ width: 0 }}
       animate={{ width }}
       transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-      className="absolute z-80 flex h-screen shrink-0 flex-col overflow-hidden border-l border-black/8 bg-white md:relative"
+      className="absolute z-80 flex h-screen shrink-0 flex-col overflow-hidden border-l border-text/10 bg-background md:relative"
     >
       <Header />
       <NavItems />

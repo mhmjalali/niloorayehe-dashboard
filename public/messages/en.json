@@ -6,6 +6,17 @@
   "Home": {
     "Header": {
       "tagline": "Perfume & Fragrance"
+    },
+    "Hero": {
+      "eyebrow": "Niloo Rayehe — Unified System",
+      "title": "Admin Panel for Niloo Rayehe",
+      "subtitle": "The unified management hub for the Niloo Rayehe ecosystem.",
+      "websiteCta": "Niloo Rayehe Website",
+      "panelCta": "Admin Panel",
+      "caption": "To reach the panel you'll first be directed to sign in; if you're already signed in you'll go straight to the dashboard."
+    },
+    "Footer": {
+      "copyright": "© Niloo Rayehe. All rights reserved."
     }
   }
 }

@@ -79,7 +79,7 @@ const Modal = ({
               // inset + m-auto centers the panel while keeping it inside the
               // viewport at every width; max-h uses dvh so mobile browser
               // chrome can't push the panel off-screen.
-              "fixed inset-3 sm:inset-6 z-100 m-auto flex h-fit flex-col overflow-hidden rounded-md bg-white p-2",
+              "fixed inset-3 sm:inset-6 z-100 m-auto flex h-fit flex-col overflow-hidden rounded-md bg-background p-2",
               "max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)]",
               sizeClasses[size],
               className,

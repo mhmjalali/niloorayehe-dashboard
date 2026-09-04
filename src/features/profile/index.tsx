@@ -20,13 +20,13 @@ const Profile = ({
         closeOnBackdrop
         className="w-75"
       >
-        <div className="flex flex-col items-center gap-2 px-6 pt-6 pb-5 border-b border-border">
+        <div className="flex flex-col items-center gap-2 px-6 pt-6 pb-5 border-b border-text/10">
           <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
             <span className="text-lg font-bold text-primary">مح</span>
           </div>
           <div className="text-center">
-            <p className="text-sm font-semibold text-text-primary">محمد</p>
-            <p className="text-xs text-text-secondary mt-0.5">
+            <p className="text-sm font-semibold text-text">محمد</p>
+            <p className="text-xs text-muted mt-0.5">
               mohammad.jalali@gmail.com
             </p>
             <span className="text-[10px] bg-secondary/20 text-secondary py-1 px-2 rounded-full mt-2">
@@ -41,11 +41,11 @@ const Profile = ({
               setModalOpen(false);
               setEditInfoOpen(true);
             }}
-            className="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 text-text-primary transition-colors text-right group cursor-pointer"
+            className="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 text-text transition-colors text-right group cursor-pointer"
           >
             <UserPen
               size={17}
-              className="text-text-secondary group-hover:text-text-primary transition-colors shrink-0"
+              className="text-muted group-hover:text-text transition-colors shrink-0"
             />
             <span className="text-sm font-medium">ویرایش پروفایل</span>
           </button>
@@ -55,16 +55,16 @@ const Profile = ({
               console.log("change password");
               setModalOpen(false);
             }}
-            className="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 text-text-primary transition-colors text-right group cursor-pointer"
+            className="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 text-text transition-colors text-right group cursor-pointer"
           >
             <KeyRound
               size={17}
-              className="text-text-secondary group-hover:text-text-primary transition-colors shrink-0"
+              className="text-muted group-hover:text-text transition-colors shrink-0"
             />
             <span className="text-sm font-medium flex-1">تغییر رمز عبور</span>
           </button>
 
-          <div className="h-px bg-border mx-2 my-1" />
+          <div className="h-px bg-text/10 mx-2 my-1" />
 
           <button
             type="button"

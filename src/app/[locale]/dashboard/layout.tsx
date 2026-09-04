@@ -1,4 +1,3 @@
-import Breadcrumb from "@/components/main/breadcrumb";
 import Header from "@/components/main/header";
 import Sidebar from "@/components/main/sidebar";
 
@@ -14,9 +13,8 @@ const DashboardLayout = ({
         <div className="shrink-0">
           <Header />
         </div>
-        <main className="flex-1 overflow-y-auto">
-          <Breadcrumb />
-          <div className="h-full p-6">{children}</div>
+        <main className="h-full flex-1 overflow-y-auto">
+          <div className="p-6">{children}</div>
         </main>
       </div>
     </div>
