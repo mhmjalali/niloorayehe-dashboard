@@ -3,6 +3,27 @@
     "title": "Niloo Rayehe Dashboard",
     "description": "Content management and operations dashboard for the Niloo Rayehe website."
   },
+  "Sidebar": {
+    "Header": {
+      "title": "Niloo Rayehe Iranian",
+      "subtitle": "Comprehensive platform for managing Niloo Rayehe affairs",
+      "logoAlt": "Active in the perfume and fragrance industry"
+    },
+    "dashboard": "Dashboard",
+    "userManagement": "User Management",
+    "academy": "Academy",
+    "academyProfessors": "Professors Management",
+    "academyCourses": "Courses Management"
+  },
+  "Table": {
+    "Actions": {
+      "label": "Table Actions",
+      "filter": "Filter",
+      "visibility": "Hide/Show Columns",
+      "refresh": "Refresh",
+      "reset": "Reset All"
+    }
+  },
   "Home": {
     "Header": {
       "tagline": "Perfume & Fragrance"
@@ -18,5 +39,8 @@
     "Footer": {
       "copyright": "© Niloo Rayehe. All rights reserved."
     }
+  },
+  "UserManagement": {
+    "createUser": "Create User"
   }
 }

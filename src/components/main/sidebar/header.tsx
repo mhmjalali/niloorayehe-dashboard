@@ -5,9 +5,11 @@ import { useIsMobile } from "@/hooks/useIsMobile";
 import { cn } from "@/lib/utils";
 import { useSidebarStore } from "@/stores/useSidebarStore";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const Header = () => {
+  const t = useTranslations("Sidebar.Header");
   const { collapsed, toggleCollapsed } = useSidebarStore();
   const isMobile = useIsMobile();
 
@@ -22,7 +24,7 @@ const Header = () => {
         <div className="shrink-0">
           <Image
             src="/logo/niloorayehe.svg"
-            alt="فعال در صنعت عطر و رایحه"
+            alt={t("logoAlt")}
             width={32}
             height={32}
             className="h-8 w-8"
@@ -31,10 +33,10 @@ const Header = () => {
         {!collapsed && (
           <div className="flex flex-col overflow-hidden whitespace-nowrap">
             <span className="text-primary leading-tight font-bold">
-              نیلو رایحه ایرانیان
+              {t("title")}
             </span>
             <span className="text-secondary mt-0.5 text-xs leading-tight">
-              پلتفرم جامع مدیریت امور نیلو رایحه
+              {t("subtitle")}
             </span>
           </div>
         )}

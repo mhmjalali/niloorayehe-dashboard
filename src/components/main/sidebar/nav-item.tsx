@@ -5,6 +5,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -21,6 +22,7 @@ function isRouteActive(item: SidebarItem, pathname: string): boolean {
 }
 
 const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
+  const t = useTranslations("Sidebar");
   const pathname = usePathname();
   const hasChildren = !!item.children?.length;
   const isActive = pathname === item.route;
@@ -63,7 +65,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
       {(isActive || (isDescendantActive && !hasChildren)) && (
         <motion.div
           layoutId="active-indicator"
-          className="bg-primary absolute top-1.5 right-0 bottom-1.5 w-0.5 rounded-r-full"
+          className="bg-primary absolute top-1.5 inset-s-0 bottom-1.5 w-0.5 rounded-r-full"
         />
       )}
 
@@ -80,11 +82,11 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
       {!collapsed && (
         <span
           className={cn(
-            "flex-1 overflow-hidden text-right text-sm font-medium whitespace-nowrap",
+            "flex-1 overflow-hidden text-start text-sm font-medium whitespace-nowrap",
             !(isActive || isDescendantActive) && "group-hover:text-text",
           )}
         >
-          {item.label}
+          {t(item.label)}
         </span>
       )}
 
@@ -100,7 +102,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
 
       {collapsed && !hasChildren && (
         <div className="pointer-events-none absolute right-full z-50 mr-2 rounded-md bg-text px-2.5 py-1.5 text-xs whitespace-nowrap text-background opacity-0 transition-opacity group-hover:opacity-100">
-          {item.label}
+          {t(item.label)}
         </div>
       )}
     </>

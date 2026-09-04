@@ -13,7 +13,7 @@ const DashboardLayout = ({
         <div className="shrink-0">
           <Header />
         </div>
-        <main className="h-full flex-1 overflow-y-auto">
+        <main className="h-full flex-1 overflow-y-auto bg-background">
           <div className="p-6">{children}</div>
         </main>
       </div>

@@ -19,35 +19,35 @@ export interface SidebarItem {
 export const sidebarItems: SidebarItem[] = [
   {
     key: "dashboard",
-    label: "داشبورد",
+    label: "dashboard",
     route: "/dashboard",
     icon: LayoutDashboard,
     permissions: ["all"],
   },
   {
     key: "user-management",
-    label: "مدیریت کاربران",
+    label: "userManagement",
     route: "/dashboard/user-management",
     icon: ShieldUser,
     permissions: ["all"],
   },
   {
     key: "missions",
-    label: "آکادمی",
+    label: "academy",
     route: "/dashboard/academy",
     icon: School,
     permissions: ["all"],
     children: [
       {
         key: "academy-professors",
-        label: "مدیریت اساتید",
+        label: "academyProfessors",
         route: "/dashboard/academy/professors",
         icon: ContactRound,
         permissions: ["all"],
       },
       {
         key: "academy-courses",
-        label: "مدیریت دوره ها",
+        label: "academyCourses",
         route: "/dashboard/academy/courses",
         icon: LibraryBig,
         permissions: ["all"],

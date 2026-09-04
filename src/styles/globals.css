@@ -27,6 +27,7 @@ body {
   --color-background: #f7f2ec;
   --color-text: #232522;
   --color-muted: #6b6b66;
+  --color-border: #00000014;
   --color-success: #5e7c70;
   --color-warning: #c98a3a;
   --color-error: #79263a;
@@ -44,9 +45,10 @@ body {
   --color-warning: #d9a54d;
   --color-error: #b6415d;
   --color-info: #7fa3c0;
+  --color-border: #ffffff2e;
 }
 
 html[lang="en"] {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    sans-serif;
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }

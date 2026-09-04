@@ -3,6 +3,30 @@
     "title": "داشبورد نیلو رایحه",
     "description": "سامانه مدیریت محتوا و عملیات وب‌سایت نیلو رایحه."
   },
+  "Sidebar": {
+    "Header": {
+      "title": "نیلو رایحه ایرانیان",
+      "subtitle": "پلتفرم جامع مدیریت امور نیلو رایحه",
+      "logoAlt": "فعال در صنعت عطر و رایحه"
+    },
+    "dashboard": "داشبورد",
+    "userManagement": "مدیریت کاربران",
+    "academy": "آکادمی",
+    "academyProfessors": "مدیریت اساتید",
+    "academyCourses": "مدیریت دوره ها"
+  },
+  "UserManagement": {
+    "createUser": "افزودن کاربر"
+  },
+  "Table": {
+    "Actions": {
+      "label": "عملیات های جدول",
+      "filter": "فیلتر",
+      "visibility": "مخفی/نمایش ستون ها",
+      "refresh": "بارگذاری مجدد",
+      "reset": "بازنشانی همه"
+    }
+  },
   "Home": {
     "Header": {
       "tagline": "عطر و رایحه"

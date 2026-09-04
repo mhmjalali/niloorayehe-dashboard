@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { motion, type HTMLMotionProps } from "motion/react";
 
 const buttonVariants = cva(
-  "flex items-center justify-center gap-2 font-medium rounded-md cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-40",
+  "relative flex items-center justify-center gap-2 font-medium rounded-md cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-40",
   {
     variants: {
       variant: {
@@ -14,6 +14,7 @@ const buttonVariants = cva(
         ghost: "bg-transparent",
       },
       size: {
+        xs: "text-xs px-2 py-1 h-6",
         sm: "text-xs px-3 py-1.5 h-8",
         md: "text-sm px-4 py-2 h-10",
         lg: "text-base px-6 py-2.5 h-12",
@@ -32,7 +33,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "primary",
         class:
-          "bg-primary text-background hover:brightness-110 active:brightness-95 focus-visible:ring-primary/40",
+          "bg-primary text-white hover:brightness-110 active:brightness-95 focus-visible:ring-primary/40",
       },
       {
         variant: "outlined",
@@ -52,7 +53,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "secondary",
         class:
-          "bg-secondary text-background hover:brightness-110 active:brightness-95 focus-visible:ring-secondary/40",
+          "bg-secondary text-white hover:brightness-110 active:brightness-95 focus-visible:ring-secondary/40",
       },
       {
         variant: "outlined",
@@ -72,7 +73,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "error",
         class:
-          "bg-error text-background hover:brightness-110 active:brightness-95 focus-visible:ring-error/40",
+          "bg-error text-white hover:brightness-110 active:brightness-95 focus-visible:ring-error/40",
       },
       {
         variant: "outlined",
@@ -92,7 +93,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "warning",
         class:
-          "bg-warning text-background hover:brightness-110 active:brightness-95 focus-visible:ring-warning/40",
+          "bg-warning text-white hover:brightness-110 active:brightness-95 focus-visible:ring-warning/40",
       },
       {
         variant: "outlined",
@@ -112,7 +113,7 @@ const buttonVariants = cva(
         variant: "filled",
         color: "success",
         class:
-          "bg-success text-background hover:brightness-110 active:brightness-95 focus-visible:ring-success/40",
+          "bg-success text-white hover:brightness-110 active:brightness-95 focus-visible:ring-success/40",
       },
       {
         variant: "outlined",
@@ -136,7 +137,8 @@ const buttonVariants = cva(
 );
 
 interface ButtonProps
-  extends Omit<HTMLMotionProps<"button">, "size" | "color">,
+  extends
+    Omit<HTMLMotionProps<"button">, "size" | "color">,
     VariantProps<typeof buttonVariants> {
   loading?: boolean;
   loadingText?: string;

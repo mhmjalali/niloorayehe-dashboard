@@ -7,6 +7,8 @@ import localFont from "next/font/local";
 import NextTopLoader from "nextjs-toploader";
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
+import QueryProvider from "@/components/providers/query-provider";
+import ToastProvider from "@/components/providers/toast-provider";
 
 const morabba = localFont({
   src: [
@@ -89,7 +91,10 @@ export default async function LocaleLayout({
           enableSystem
         >
           <NextTopLoader color="var(--color-accent)" height={3} />
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <ToastProvider />
+          <QueryProvider>
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>
