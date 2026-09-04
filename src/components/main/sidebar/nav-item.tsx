@@ -1,11 +1,10 @@
 "use client";
 
 import type { SidebarItem } from "@/data/sidebar-items";
+import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -144,7 +143,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
               className="overflow-hidden"
             >
               <ul className="mt-0.5 flex flex-col gap-0.5">
-                {item.children!.map((child) => (
+                {item.children?.map((child) => (
                   <NavItem
                     key={child.key}
                     item={child}
@@ -178,7 +177,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
                 className="z-100 min-w-50 rounded-lg border border-text/10 bg-background p-1.5 shadow-lg"
               >
                 <ul className="flex flex-col gap-0.5">
-                  {item.children!.map((child) => (
+                  {item.children?.map((child) => (
                     <NavItem
                       key={child.key}
                       item={child}
