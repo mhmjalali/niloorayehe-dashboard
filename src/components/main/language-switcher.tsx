@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/ui/Button";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { localeConfig, routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
@@ -46,19 +47,20 @@ export function LanguageSwitcher() {
 
   return (
     <div ref={containerRef} className="relative">
-      <button
-        type="button"
+      <Button
+        variant="ghost"
+        size="sm"
         onClick={() => setOpen((value) => !value)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="flex items-center cursor-pointer gap-1.5 rounded-full border border-text/10 bg-background px-3.5 py-2 text-xs font-semibold text-text shadow-sm transition-shadow duration-200 hover:shadow-xl"
+        className="gap-1.5 rounded-md border border-text/10 bg-background font-semibold text-muted hover:bg-primary/10 hover:text-primary"
       >
         {localeConfig[locale as keyof typeof localeConfig].label}
         <ChevronDown
           size={14}
           className={cn("transition-transform", open && "rotate-180")}
         />
-      </button>
+      </Button>
 
       <AnimatePresence>
         {open && (

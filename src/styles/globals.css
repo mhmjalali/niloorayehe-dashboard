@@ -4,6 +4,14 @@ body {
   font-feature-settings: "ss01";
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+  }
+}
+
 @theme {
   --font-sans: var(--font-morabba), ui-sans-serif, system-ui, sans-serif;
 
@@ -36,4 +44,9 @@ body {
   --color-warning: #d9a54d;
   --color-error: #b6415d;
   --color-info: #7fa3c0;
+}
+
+html[lang="en"] {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
 }

@@ -2,47 +2,29 @@
 
 import Button from "@/components/ui/Button";
 import { Moon, Sun } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) {
-    return (
-      <Button
-        variant="ghost"
-        aria-label="تغییر تم"
-        className="size-9 rounded-full p-0"
-      />
-    );
-  }
-
-  const isDark = resolvedTheme === "dark";
 
   return (
     <Button
-      variant="filled"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? "تغییر به حالت روشن" : "تغییر به حالت تیره"}
-      className="size-9 rounded-full border border-text/10 bg-background p-0 text-text shadow-sm transition-shadow duration-200 hover:shadow-xl"
+      variant="ghost"
+      size="sm"
+      onClick={() =>
+        setTheme(resolvedTheme === "dark" ? "light" : "dark")
+      }
+      aria-label="تغییر تم"
+      className="relative w-9 rounded-md border border-text/10 bg-background p-0 text-muted transition-colors hover:bg-primary/10 hover:text-primary"
     >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={isDark ? "moon" : "sun"}
-          initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-          animate={{ rotate: 0, opacity: 1, scale: 1 }}
-          exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-          transition={{ duration: 0.2 }}
-          className="flex"
-        >
-          {isDark ? <Moon size={15} /> : <Sun size={15} />}
-        </motion.span>
-      </AnimatePresence>
+      <Sun
+        size={15}
+        className="absolute inset-0 m-auto transition-all duration-300 [[data-theme=dark]_&]:rotate-90 [[data-theme=dark]_&]:scale-50 [[data-theme=dark]_&]:opacity-0"
+      />
+      <Moon
+        size={15}
+        className="absolute inset-0 m-auto -rotate-90 scale-50 opacity-0 transition-all duration-300 [[data-theme=dark]_&]:rotate-0 [[data-theme=dark]_&]:scale-100 [[data-theme=dark]_&]:opacity-100"
+      />
     </Button>
   );
 }
