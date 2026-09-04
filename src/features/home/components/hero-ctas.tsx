@@ -21,12 +21,12 @@ const HeroCtas = ({
   panelLabel: string;
 }) => {
   return (
-    <div className="flex items-center gap-3.5">
+    <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-3.5">
       <MotionLink
         href="/dashboard"
         initial="rest"
         whileHover="hover"
-        className="flex items-center gap-2.5 rounded-full border-2 border-accent bg-accent px-7 py-3.5 text-sm font-semibold text-text transition-colors hover:brightness-110"
+        className="flex items-center justify-center gap-2.5 rounded-full border-2 border-accent bg-accent px-6 py-3 text-sm font-semibold text-text transition-colors hover:brightness-110 sm:px-7 sm:py-3.5"
       >
         {panelLabel}
         <motion.span variants={arrowVariants} transition={arrowTransition}>
@@ -40,7 +40,7 @@ const HeroCtas = ({
         rel="noopener noreferrer"
         initial="rest"
         whileHover="hover"
-        className="flex items-center gap-2.5 rounded-full border-2 border-text/40 px-7 py-3.5 text-sm font-semibold text-text transition-colors hover:border-text/70"
+        className="flex items-center justify-center gap-2.5 rounded-full border-2 border-text/40 px-6 py-3 text-sm font-semibold text-text transition-colors hover:border-text/70 sm:px-7 sm:py-3.5"
       >
         {websiteLabel}
         <motion.span variants={arrowVariants} transition={arrowTransition}>

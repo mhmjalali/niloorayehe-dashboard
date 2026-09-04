@@ -5,8 +5,8 @@ import Hero from "./components/hero";
 
 const Home = () => {
   return (
-    <div className="relative h-screen overflow-hidden bg-background">
-      <div className="absolute inset-0 ltr:-scale-x-100">
+    <div className="relative min-h-screen overflow-x-hidden bg-background">
+      <div className="fixed inset-0 ltr:-scale-x-100">
         <Image
           src="/images/home-background.png"
           alt=""
@@ -19,7 +19,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--color-background)_70%,transparent)_0%,color-mix(in_srgb,var(--color-background)_10%,transparent)_38%,color-mix(in_srgb,var(--color-background)_82%,transparent)_100%)]" />
       </div>
 
-      <div className="relative z-10 grid h-full grid-rows-[auto_1fr_auto]">
+      <div className="relative z-10 flex min-h-screen flex-col">
         <Header />
         <Hero />
         <Footer />

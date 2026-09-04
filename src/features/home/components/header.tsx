@@ -6,17 +6,22 @@ const Header = async () => {
   const t = await getTranslations("Home");
 
   return (
-    <header className="flex items-center justify-between gap-6 border-b-2 border-text/16 px-12 py-5.5">
-      <div className="flex items-center gap-3.5">
+    <header className="flex items-center justify-between gap-4 border-b-2 border-text/16 px-5 py-4 sm:gap-6 sm:px-8 sm:py-5 lg:px-12 lg:py-5.5">
+      <div className="flex items-center gap-2.5 sm:gap-3.5">
         <Image
           src="/logo/niloorayehe.svg"
           alt="Niloo Rayehe"
           width={780}
           height={522}
-          className="h-8 w-auto"
+          className="h-7 w-auto sm:h-8"
         />
-        <span className="h-3.5 w-0.5 bg-accent" aria-hidden="true" />
-        <span className="text-sm text-text/62">{t("Header.tagline")}</span>
+        <span
+          className="hidden h-3.5 w-0.5 bg-accent sm:block"
+          aria-hidden="true"
+        />
+        <span className="hidden text-sm text-text/62 sm:inline">
+          {t("Header.tagline")}
+        </span>
       </div>
       <LanguageSwitcher />
     </header>

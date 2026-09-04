@@ -5,9 +5,9 @@ const Hero = async () => {
   const t = await getTranslations("Home.Hero");
 
   return (
-    <div className="flex items-center px-12">
-      <div className="max-w-160">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5">
+    <div className="flex flex-1 items-center px-5 py-10 sm:px-8 lg:px-12 lg:py-0">
+      <div className="w-full max-w-160">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 sm:mb-6">
           <span
             className="h-1.5 w-1.5 rounded-full bg-accent"
             aria-hidden="true"
@@ -17,8 +17,10 @@ const Hero = async () => {
           </span>
         </div>
 
-        <h1 className="mb-5 text-hero font-black text-text">{t("title")}</h1>
-        <p className="mb-8.5 max-w-135 text-subtitle text-text/76">
+        <h1 className="mb-4 text-3xl leading-[1.2] font-black text-text sm:text-4xl lg:mb-5 lg:text-hero">
+          {t("title")}
+        </h1>
+        <p className="mb-6 max-w-135 text-subtitle text-text/76 sm:mb-8.5">
           {t("subtitle")}
         </p>
 
