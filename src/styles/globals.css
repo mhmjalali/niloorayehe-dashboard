@@ -21,30 +21,57 @@ body {
   --text-subtitle: 1rem;
   --text-subtitle--line-height: 1.7;
 
-  --color-primary: #0f4537;
-  --color-secondary: #174f42;
-  --color-accent: #d9c4a5;
-  --color-background: #f7f2ec;
-  --color-text: #232522;
-  --color-muted: #6b6b66;
+  /* --- THEME EXPERIMENT: "Rosewood & Gold" ---
+     Original "Forest & Sand" values are kept below, commented out,
+     so this can be reverted in one step if it isn't a hit. */
+  /* --color-primary: #0f4537; */
+  /* --color-secondary: #174f42; */
+  /* --color-accent: #d9c4a5; */
+  /* --color-background: #f7f2ec; */
+  /* --color-text: #232522; */
+  /* --color-muted: #6b6b66; */
+  /* --color-border: #00000014; */
+  /* --color-success: #5e7c70; */
+  /* --color-warning: #c98a3a; */
+  /* --color-error: #79263a; */
+  /* --color-info: #4e7495; */
+
+  --color-primary: #6b2b3a;
+  --color-secondary: #8a3b52;
+  --color-accent: #c9a35c;
+  --color-background: #f9f2ea;
+  --color-text: #2b211f;
+  --color-muted: #8a7d74;
   --color-border: #00000014;
-  --color-success: #5e7c70;
+  --color-success: #5e7c5e;
   --color-warning: #c98a3a;
-  --color-error: #79263a;
-  --color-info: #4e7495;
+  --color-error: #9c2f43;
+  --color-info: #5c7f9e;
 }
 
 [data-theme="dark"] {
-  --color-primary: #31a688;
-  --color-secondary: #3ba88f;
-  --color-accent: #e3ceaf;
-  --color-background: #232522;
-  --color-text: #efe6d7;
-  --color-muted: #a6a69e;
-  --color-success: #7ca695;
-  --color-warning: #d9a54d;
-  --color-error: #b6415d;
-  --color-info: #7fa3c0;
+  /* --color-primary: #31a688; */
+  /* --color-secondary: #3ba88f; */
+  /* --color-accent: #e3ceaf; */
+  /* --color-background: #232522; */
+  /* --color-text: #efe6d7; */
+  /* --color-muted: #a6a69e; */
+  /* --color-success: #7ca695; */
+  /* --color-warning: #d9a54d; */
+  /* --color-error: #b6415d; */
+  /* --color-info: #7fa3c0; */
+  /* --color-border: #ffffff2e; */
+
+  --color-primary: #d98fa3;
+  --color-secondary: #c97b93;
+  --color-accent: #e0bc7a;
+  --color-background: #211a18;
+  --color-text: #f2e6da;
+  --color-muted: #a89a90;
+  --color-success: #8fb08f;
+  --color-warning: #dba55a;
+  --color-error: #dd6f87;
+  --color-info: #7fa8c9;
   --color-border: #ffffff2e;
 }
 

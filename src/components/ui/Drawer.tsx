@@ -61,7 +61,7 @@ export default function Drawer({
           <motion.div
             key="panel"
             className={[
-              "fixed z-90 flex flex-col bg-white shadow-2xl",
+              "fixed z-90 flex flex-col bg-background shadow-2xl",
               position[side],
               resolvedSize,
             ].join(" ")}

@@ -45,19 +45,19 @@ const DateRangeField = ({ value, onChange, fieldId }: DateRangeFieldProps) => {
 
           onChange([start, end]);
         }}
-        inputClass="w-full rounded-lg border border-border bg-surface-secondary px-3 py-2 pl-8 text-sm text-text-primary outline-none transition-colors hover:border-text-secondary focus:border-secondary focus:bg-white"
+        inputClass="w-full rounded-lg border border-border bg-text/5 px-3 py-2 pl-8 text-sm text-text outline-none transition-colors hover:border-muted focus:border-secondary focus:bg-background"
         containerStyle={{ width: "100%" }}
         placeholder="انتخاب بازه تاریخ"
       />
       <Calendar
         size={15}
-        className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-text-secondary"
+        className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-muted"
       />
       {hasValue && (
         <button
           type="button"
           onClick={() => onChange(["", ""])}
-          className="absolute left-7.5 top-1/2 -translate-y-1/2 text-text-secondary hover:text-error transition-colors"
+          className="absolute left-7.5 top-1/2 -translate-y-1/2 text-muted hover:text-error transition-colors"
         >
           <X size={15} />
         </button>

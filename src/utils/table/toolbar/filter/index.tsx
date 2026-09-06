@@ -126,7 +126,7 @@ function Filter({ open, onClose, columns }: FilterDrawerProps) {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-4 h-full"
       >
-        <h2 className="text-base font-semibold text-text-primary">فیلترها</h2>
+        <h2 className="text-base font-semibold text-text">فیلترها</h2>
         <div className="flex flex-col flex-1 overflow-hidden">
           <div className="overflow-y-auto h-full space-y-4">
             {columns.map((column) => {
@@ -134,7 +134,7 @@ function Filter({ open, onClose, columns }: FilterDrawerProps) {
                 <div key={column.id} className="flex flex-col gap-1.5">
                   <label
                     htmlFor={`filter_${column.id}`}
-                    className="text-xs text-text-secondary"
+                    className="text-xs text-muted"
                   >
                     {column.label}
                   </label>

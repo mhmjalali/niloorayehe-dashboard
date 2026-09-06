@@ -16,7 +16,7 @@ function CacheToast({
   onConfirm: () => void;
 }) {
   return (
-    <div className="bg-white rounded-lg shadow-xl font-(family-name:--font-morabba)">
+    <div className="bg-background rounded-lg shadow-xl font-(family-name:--font-morabba)">
       <div className="flex flex-col gap-3 bg-secondary/20 p-4 rounded-lg">
         <div className="flex flex-col gap-1">
           <div className="flex items-center justify-between gap-2 mb-1">
@@ -25,7 +25,7 @@ function CacheToast({
             </p>
             <CloudBackup className="h-5 w-5 text-secondary" />
           </div>
-          <p className="text-xs text-text-secondary pe-4 mb-1">
+          <p className="text-xs text-muted pe-4 mb-1">
             آیا مایل به ذخیره تغییرات اعمال شده برای دفعات بعد هستید؟
           </p>
         </div>

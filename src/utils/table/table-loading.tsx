@@ -26,7 +26,7 @@ export const TableSkeleton = ({
               className="px-4 py-3"
             >
               <div
-                className="h-4 rounded-md bg-text-primary/30 animate-pulse"
+                className="h-4 rounded-md bg-text/15 animate-pulse"
                 style={{ width: `${60 + ((i * 7 + j * 13) % 35)}%` }}
               />
             </td>

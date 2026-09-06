@@ -19,7 +19,7 @@ function Pagination<T>({ table, totalRowCount }: PaginationProps<T>) {
   const { pageIndex, pageSize, setPageIndex, setPageSize } = useTableStore();
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between py-2 text-sm text-text-primary">
+    <div className="flex flex-col sm:flex-row items-center justify-between py-2 text-sm text-text">
       <div className="flex items-center gap-2">
         <span>ردیف در صفحه:</span>
         <select
@@ -39,7 +39,7 @@ function Pagination<T>({ table, totalRowCount }: PaginationProps<T>) {
       </div>
 
       <div className="flex items-center gap-1">
-        <span className="text-text-secondary">
+        <span className="text-muted">
           {pageIndex * pageSize + 1} –{" "}
           {Math.min((pageIndex + 1) * pageSize, totalRowCount)} از{" "}
           {totalRowCount}

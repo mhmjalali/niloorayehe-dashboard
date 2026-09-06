@@ -179,7 +179,7 @@ function DataTable<T>({
                             <SortIcon
                               size={15}
                               className={cn(
-                                sorted ? "text-white" : "text-text-secondary",
+                                sorted ? "text-white" : "text-white/50",
                               )}
                             />
                           )}
@@ -207,7 +207,7 @@ function DataTable<T>({
                         <td
                           key={cell.id}
                           className={cn(
-                            "text-right text-text-primary whitespace-nowrap border-l border-border last:border-l-0",
+                            "text-right text-text whitespace-nowrap border-l border-border last:border-l-0",
                             !noPadding && "px-4 py-2.5",
                           )}
                         >
