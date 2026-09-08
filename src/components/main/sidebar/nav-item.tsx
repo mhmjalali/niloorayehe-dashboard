@@ -56,8 +56,8 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
     "relative flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors group w-full",
     collapsed && "justify-center",
     isActive || isDescendantActive
-      ? "bg-primary/10 text-primary"
-      : "text-muted hover:bg-primary/10 hover:text-text",
+      ? "bg-text-muted/15 text-primary"
+      : "text-muted hover:bg-text-muted/15 hover:text-text",
   );
 
   const content = (
@@ -65,7 +65,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
       {(isActive || (isDescendantActive && !hasChildren)) && (
         <motion.div
           layoutId="active-indicator"
-          className="bg-primary absolute top-1.5 inset-s-0 bottom-1.5 w-0.5 rounded-r-full"
+          className="bg-primary dark:bg-muted absolute top-1.5 inset-s-0 bottom-1.5 w-0.5 rounded-r-full"
         />
       )}
 
@@ -74,8 +74,8 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
         className={cn(
           "shrink-0 transition-colors",
           isActive || isDescendantActive
-            ? "text-primary"
-            : "text-muted group-hover:text-text",
+            ? "text-primary dark:text-muted"
+            : "text-text-muted group-hover:text-text",
         )}
       />
 
@@ -83,7 +83,9 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
         <span
           className={cn(
             "flex-1 overflow-hidden text-start text-sm font-medium whitespace-nowrap",
-            !(isActive || isDescendantActive) && "group-hover:text-text",
+            isActive || isDescendantActive
+              ? "text-primary dark:text-muted"
+              : "text-text-muted group-hover:text-text",
           )}
         >
           {t(item.label)}

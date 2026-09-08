@@ -1,5 +1,5 @@
-import Home from "@/features/home";
+import Auth from "@/features/auth";
 
 export default function HomePage() {
-  return <Home />;
+  return <Auth />;
 }

@@ -3,7 +3,10 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  allowedDevOrigins: ["10.117.148.210"],
+  allowedDevOrigins: ["192.168.137.1"],
+  images: {
+    qualities: [75, 90],
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

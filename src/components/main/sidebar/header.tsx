@@ -21,18 +21,18 @@ const Header = () => {
       )}
     >
       <div className="flex items-center gap-2.5 overflow-hidden">
-        <div className="shrink-0">
+        <div className="shrink-0 bg-primary rounded-md p-0.5">
           <Image
             src="/logo/niloorayehe.svg"
             alt={t("logoAlt")}
-            width={32}
-            height={32}
-            className="h-8 w-8"
+            width={40}
+            height={40}
+            className="h-10 w-10"
           />
         </div>
         {!collapsed && (
           <div className="flex flex-col overflow-hidden whitespace-nowrap">
-            <span className="text-primary leading-tight font-bold">
+            <span className="text-primary leading-tight font-bold dark:text-muted">
               {t("title")}
             </span>
             <span className="text-secondary mt-0.5 text-xs leading-tight">
