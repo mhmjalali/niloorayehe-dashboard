@@ -137,8 +137,7 @@ const buttonVariants = cva(
 );
 
 interface ButtonProps
-  extends
-    Omit<HTMLMotionProps<"button">, "size" | "color">,
+  extends Omit<HTMLMotionProps<"button">, "size" | "color">,
     VariantProps<typeof buttonVariants> {
   loading?: boolean;
   loadingText?: string;

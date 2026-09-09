@@ -31,7 +31,11 @@ const chipVariants = cva(
         color: "primary",
         class: "border-primary text-primary",
       },
-      { variant: "ghost", color: "primary", class: "bg-primary/10 text-primary" },
+      {
+        variant: "ghost",
+        color: "primary",
+        class: "bg-primary/10 text-primary",
+      },
 
       { variant: "contained", color: "muted", class: "bg-muted text-text" },
       { variant: "outlined", color: "muted", class: "border-muted text-text" },
