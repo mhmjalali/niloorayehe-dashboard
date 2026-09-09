@@ -53,7 +53,7 @@ export function LanguageSwitcher() {
         onClick={() => setOpen((value) => !value)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="gap-1.5 rounded-md border border-text/10 bg-background font-semibold text-muted hover:bg-primary/10 hover:text-primary"
+        className="gap-1.5 rounded-md border border-text/10 bg-transparent font-semibold text-text hover:bg-primary/10 hover:text-primary"
       >
         {localeConfig[locale as keyof typeof localeConfig].label}
         <ChevronDown
@@ -81,7 +81,7 @@ export function LanguageSwitcher() {
                   onClick={() => selectLocale(loc)}
                   className={cn(
                     "flex w-full items-center px-3 py-2 text-start text-sm transition-colors hover:bg-text/5",
-                    loc === locale ? "font-semibold text-accent" : "text-text",
+                    loc === locale ? "text-primary font-semibold" : "text-text",
                   )}
                 >
                   {localeConfig[loc].label}
