@@ -4,7 +4,6 @@ import Button from "@/components/ui/Button";
 import { useSidebarStore } from "@/stores/useSidebarStore";
 import { Menu } from "lucide-react";
 import { LanguageSwitcher } from "../language-switcher";
-import { ThemeToggle } from "../theme-toggle";
 
 const Header = () => {
   const { toggleCollapsed } = useSidebarStore();
@@ -16,7 +15,6 @@ const Header = () => {
       </Button>
       <div className="flex items-center gap-2 pe-2">
         <LanguageSwitcher />
-        <ThemeToggle />
       </div>
     </div>
   );

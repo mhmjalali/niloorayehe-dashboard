@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 body {
   font-feature-settings: "ss01";
@@ -34,21 +33,6 @@ body {
   --color-warning: #c98a3a;
   --color-error: #79263a;
   --color-info: #4e7495;
-}
-
-[data-theme="dark"] {
-  --color-primary: #2a6757;
-  --color-secondary: #5e7c70;
-  --color-accent: #d9c4a5;
-  --color-background: #020c0a;
-  --color-text: #efe6d7;
-  --color-text-muted: #c4c4c4;
-  --color-muted: #bfa888;
-  --color-success: #7ca695;
-  --color-warning: #d9a54d;
-  --color-error: #b6415d;
-  --color-info: #7fa3c0;
-  --color-border: #ffffff2e;
 }
 
 html[lang="en"] {

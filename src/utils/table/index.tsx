@@ -141,10 +141,10 @@ function DataTable<T>({
   return (
     <div className="flex flex-col gap-2">
       <Toolbar TableActions={TableActions} table={table} onRefresh={refetch} />
-      <div className="w-full overflow-x-auto rounded-xs shadow-xl bg-accent/5">
-        <div className="relative w-full overflow-x-auto rounded-xs">
+      <div className="w-full overflow-x-auto rounded-md shadow-xl bg-accent/10">
+        <div className="relative w-full overflow-x-auto rounded-md">
           <table className="w-full text-xs">
-            <thead className="rounded-xs bg-primary">
+            <thead className="rounded-md bg-primary">
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
@@ -198,7 +198,7 @@ function DataTable<T>({
                 table.getRowModel().rows.map((row) => (
                   <tr
                     key={row.id}
-                    className="transition-colors hover:bg-primary/8 border-b border-border last:border-b-0"
+                    className="transition-colors hover:bg-text-muted/10 border-b border-border last:border-b-0"
                   >
                     {row.getVisibleCells().map((cell) => {
                       const noPadding = cell.column.columnDef.meta?.noPadding;

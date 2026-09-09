@@ -6,7 +6,6 @@ import { localeConfig, routing } from "@/i18n/routing";
 import localFont from "next/font/local";
 import NextTopLoader from "nextjs-toploader";
 import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
 import QueryProvider from "@/components/providers/query-provider";
 import ToastProvider from "@/components/providers/toast-provider";
 
@@ -78,24 +77,13 @@ export default async function LocaleLayout({
   const { direction } = localeConfig[locale as keyof typeof localeConfig];
 
   return (
-    <html
-      lang={locale}
-      dir={direction}
-      className={`h-full ${morabba.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang={locale} dir={direction} className={`h-full ${morabba.variable}`}>
       <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="data-theme"
-          defaultTheme="system"
-          enableSystem
-        >
-          <NextTopLoader color="var(--color-accent)" height={3} />
-          <ToastProvider />
-          <QueryProvider>
-            <NextIntlClientProvider>{children}</NextIntlClientProvider>
-          </QueryProvider>
-        </ThemeProvider>
+        <NextTopLoader color="var(--color-accent)" height={3} />
+        <ToastProvider />
+        <QueryProvider>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </QueryProvider>
       </body>
     </html>
   );

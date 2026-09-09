@@ -32,7 +32,7 @@ const Header = () => {
         </div>
         {!collapsed && (
           <div className="flex flex-col overflow-hidden whitespace-nowrap">
-            <span className="text-primary leading-tight font-bold dark:text-muted">
+            <span className="text-primary leading-tight font-bold">
               {t("title")}
             </span>
             <span className="text-secondary mt-0.5 text-xs leading-tight">

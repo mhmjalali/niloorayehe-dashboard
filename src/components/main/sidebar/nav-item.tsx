@@ -65,7 +65,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
       {(isActive || (isDescendantActive && !hasChildren)) && (
         <motion.div
           layoutId="active-indicator"
-          className="bg-primary dark:bg-muted absolute top-1.5 inset-s-0 bottom-1.5 w-0.5 rounded-r-full"
+          className="bg-primary absolute top-1.5 inset-s-0 bottom-1.5 w-0.5 rounded-r-full"
         />
       )}
 
@@ -74,7 +74,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
         className={cn(
           "shrink-0 transition-colors",
           isActive || isDescendantActive
-            ? "text-primary dark:text-muted"
+            ? "text-primary"
             : "text-text-muted group-hover:text-text",
         )}
       />
@@ -84,7 +84,7 @@ const NavItem = ({ item, collapsed, depth = 0 }: NavItemProps) => {
           className={cn(
             "flex-1 overflow-hidden text-start text-sm font-medium whitespace-nowrap",
             isActive || isDescendantActive
-              ? "text-primary dark:text-muted"
+              ? "text-primary"
               : "text-text-muted group-hover:text-text",
           )}
         >
