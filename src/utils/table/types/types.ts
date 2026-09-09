@@ -53,7 +53,6 @@ export type ColumnFilterConfig =
     };
 
 declare module "@tanstack/react-table" {
-  // biome-ignore lint/correctness/noUnusedVariables: required by ColumnMeta's original signature
   interface ColumnMeta<TData, TValue> {
     filter?: ColumnFilterConfig;
     noPadding?: boolean;
