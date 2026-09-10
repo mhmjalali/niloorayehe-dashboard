@@ -25,7 +25,7 @@ function CacheToast({
             </p>
             <CloudBackup className="h-5 w-5 text-secondary" />
           </div>
-          <p className="text-xs text-muted pe-4 mb-1">
+          <p className="text-xs text-text-mutedmuted pe-4 mb-1">
             آیا مایل به ذخیره تغییرات اعمال شده برای دفعات بعد هستید؟
           </p>
         </div>

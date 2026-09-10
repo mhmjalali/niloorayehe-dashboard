@@ -57,7 +57,7 @@ const TextField = ({
         value={value ?? ""}
         onChange={(e) => onChange(e.target.value)}
         placeholder={`${name} را وارد کنید`}
-        className={`w-full rounded-lg border border-border bg-text/5 px-3 py-2 text-sm text-text outline-none transition-colors placeholder:text-muted hover:border-muted focus:border-secondary focus:bg-background ${
+        className={`w-full rounded-lg border border-border bg-text/3 px-3 py-2 text-sm text-text outline-none transition-colors placeholder:text-text-muted hover:border-text-muted focus:border-secondary focus:bg-background ${
           showModeSelector ? "pl-9" : ""
         }`}
       />
@@ -67,7 +67,7 @@ const TextField = ({
           <button
             type="button"
             onClick={() => setOpen((prev) => !prev)}
-            className="absolute left-1.5 cursor-pointer top-1/2 -translate-y-1/2 rounded-md p-1.5 text-muted transition-colors hover:bg-border/50 hover:text-text"
+            className="absolute left-1.5 cursor-pointer top-1/2 -translate-y-1/2 rounded-md p-1.5 text-primary transition-colors hover:bg-border/50 hover:text-text"
             title="تغییر حالت فیلتر"
           >
             <SlidersHorizontal size={14} />

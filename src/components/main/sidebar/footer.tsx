@@ -11,8 +11,7 @@ const Footer = () => {
   const user = {
     id: 1,
     name: "محمد جلالی",
-    username: "@mohammad_jalali",
-    email: "mohammad.jalali@gmail.com",
+    username: "09123456789",
     updated_at: "2023-03-01T12:00:00.000Z",
   };
 
@@ -34,7 +33,7 @@ const Footer = () => {
               <span className="text-text text-sm leading-tight font-medium">
                 {user?.name}
               </span>
-              <span className="text-muted mt-0.5 text-[11px] leading-tight">
+              <span className="text-text-muted mt-0.5 text-[11px] leading-tight">
                 {user?.username}
               </span>
             </div>

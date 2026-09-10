@@ -134,7 +134,7 @@ function Filter({ open, onClose, columns }: FilterDrawerProps) {
                 <div key={column.id} className="flex flex-col gap-1.5">
                   <label
                     htmlFor={`filter_${column.id}`}
-                    className="text-xs text-muted"
+                    className="text-xs text-text font-semibold"
                   >
                     {column.label}
                   </label>
