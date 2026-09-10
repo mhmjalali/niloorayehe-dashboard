@@ -39,7 +39,7 @@ function Pagination<T>({ table, totalRowCount }: PaginationProps<T>) {
       </div>
 
       <div className="flex items-center gap-1">
-        <span className="text-muted">
+        <span className="text-text-muted">
           {pageIndex * pageSize + 1} –{" "}
           {Math.min((pageIndex + 1) * pageSize, totalRowCount)} از{" "}
           {totalRowCount}
