@@ -14,9 +14,13 @@ import Toolbar from "./toolbar";
 import { useTableData } from "./hooks/useTableData";
 import { TableLoadingBar, TableSkeleton } from "./table-loading";
 import Pagination from "./pagination";
-import { promptCacheSave } from "./utils/cache-toast";
+import { dismissCacheToast, promptCacheSave } from "./utils/cache-toast";
 import { useEffect, useLayoutEffect, useState } from "react";
-import { getTableCache, setTableCache } from "./utils/cache-storage";
+import {
+  getTableCache,
+  isTableCacheDirty,
+  setTableCache,
+} from "./utils/cache-storage";
 
 // Reading the cache from localStorage has to happen before the browser
 // paints, or the default (uncached) state flashes for a frame first.
@@ -47,6 +51,7 @@ function DataTable<T>({
     pageIndex,
     pageSize,
     sorting,
+    filtering,
     columnVisibility,
     setTableKey,
     setPageIndex,
@@ -86,6 +91,31 @@ function DataTable<T>({
     defaultSorting,
   ]);
 
+  // The "save changes?" toast tracks one thing: does the live state differ
+  // from what's cached (or, with nothing cached yet, from the defaults)?
+  // Reacting to that — instead of each action deciding on its own whether
+  // to open the toast — is what makes it close the moment a change is
+  // undone, and stay silent for a no-op like "show all" when everything
+  // was already visible.
+  useEffect(() => {
+    if (!mounted || !TableKey) return;
+
+    const dirty = isTableCacheDirty(
+      TableKey,
+      { filtering, sorting, columnVisibility },
+      { filtering: [], sorting: defaultSorting ?? [], columnVisibility: {} },
+    );
+
+    if (dirty) {
+      promptCacheSave({
+        onConfirm: () =>
+          setTableCache(TableKey, { filtering, sorting, columnVisibility }),
+      });
+    } else {
+      dismissCacheToast();
+    }
+  }, [mounted, TableKey, filtering, sorting, columnVisibility, defaultSorting]);
+
   const { data, total, refetch, isLoading, isFetching } = useTableData<T>({
     endpoint: TableUrl,
     queryKey: TableKey,
@@ -115,17 +145,6 @@ function DataTable<T>({
     onSortingChange: (updater) => {
       const next = typeof updater === "function" ? updater(sorting) : updater;
       setSorting(next);
-      promptCacheSave({
-        onConfirm: () => {
-          const state = useTableStore.getState();
-          if (!state.tableKey) return;
-          setTableCache(state.tableKey, {
-            filtering: state.filtering,
-            sorting: state.sorting,
-            columnVisibility: state.columnVisibility,
-          });
-        },
-      });
     },
     onColumnVisibilityChange: (updater) => {
       const next =
@@ -140,7 +159,12 @@ function DataTable<T>({
 
   return (
     <div className="flex flex-col gap-2">
-      <Toolbar TableActions={TableActions} table={table} onRefresh={refetch} />
+      <Toolbar
+        TableActions={TableActions}
+        table={table}
+        onRefresh={refetch}
+        defaultSorting={defaultSorting}
+      />
       <div className="w-full overflow-x-auto rounded-md shadow-xl bg-accent/10">
         <div className="relative w-full overflow-x-auto rounded-md">
           <table className="w-full text-xs">

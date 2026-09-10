@@ -8,8 +8,6 @@ import FilterField from "./filter-field";
 import { useTableStore } from "../../stores/useTableStore";
 import type { TableFilter } from "../../stores/useTableStore";
 import type { FilterableColumn } from "../../types/types";
-import { promptCacheSave } from "../../utils/cache-toast";
-import { setTableCache } from "../../utils/cache-storage";
 
 type FilterMode = TableFilter["fn"];
 
@@ -78,16 +76,6 @@ function Filter({ open, onClose, columns }: FilterDrawerProps) {
     isEmptyValue(item?.value),
   );
 
-  const saveCurrentToCache = () => {
-    const state = useTableStore.getState();
-    if (!state.tableKey) return;
-    setTableCache(state.tableKey, {
-      filtering: state.filtering,
-      sorting: state.sorting,
-      columnVisibility: state.columnVisibility,
-    });
-  };
-
   const onSubmit = (draft: FilterDraft) => {
     const result: TableFilter[] = Object.entries(draft)
       .filter(([, item]) => !isEmptyValue(item.value))
@@ -111,13 +99,10 @@ function Filter({ open, onClose, columns }: FilterDrawerProps) {
 
     setFiltering(result);
     onClose();
-
-    promptCacheSave({ onConfirm: saveCurrentToCache });
   };
 
   const handleReset = () => {
     setFiltering([]);
-    promptCacheSave({ onConfirm: saveCurrentToCache });
   };
 
   return (
@@ -167,7 +152,7 @@ function Filter({ open, onClose, columns }: FilterDrawerProps) {
         <div className="flex items-center justify-end gap-2 mt-2">
           <Button
             type="button"
-            variant="outlined"
+            variant="ghost"
             onClick={handleReset}
             color="error"
             disabled={isEmpty}

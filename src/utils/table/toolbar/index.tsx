@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button";
 import Tooltip from "@/components/ui/Tooltip";
-import type { Table } from "@tanstack/react-table";
+import type { SortingState, Table } from "@tanstack/react-table";
 import {
   Columns2,
   EllipsisVertical,
@@ -22,13 +22,19 @@ interface ToolbarProps<T> {
   TableActions: React.ReactNode;
   table: Table<T>;
   onRefresh: () => void;
+  defaultSorting?: SortingState;
 }
 
 type ColumnDefWithFilter = {
   filter?: ColumnFilterConfig;
 };
 
-function Toolbar<T>({ TableActions, table, onRefresh }: ToolbarProps<T>) {
+function Toolbar<T>({
+  TableActions,
+  table,
+  onRefresh,
+  defaultSorting,
+}: ToolbarProps<T>) {
   const t = useTranslations("Table");
   const [actionsOpen, setActionsOpen] = useState(false);
   const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
@@ -44,9 +50,13 @@ function Toolbar<T>({ TableActions, table, onRefresh }: ToolbarProps<T>) {
     setColumnVisibility,
   } = useTableStore();
 
+  // Sorting starts at `defaultSorting`, not empty — only flag it as
+  // "changed" once it no longer matches what was configured as default.
+  const isSortingDefault =
+    JSON.stringify(sorting) === JSON.stringify(defaultSorting ?? []);
   const hasActiveState =
     filtering.length > 0 ||
-    sorting.length > 0 ||
+    !isSortingDefault ||
     Object.keys(columnVisibility).length > 0;
 
   const filterableColumns: FilterableColumn[] = table
@@ -65,7 +75,7 @@ function Toolbar<T>({ TableActions, table, onRefresh }: ToolbarProps<T>) {
   const handleResetAll = () => {
     setFiltering([]);
     setColumnVisibility({});
-    setSorting([]);
+    setSorting(defaultSorting ?? []);
     setPageIndex(0);
 
     if (tableKey) {

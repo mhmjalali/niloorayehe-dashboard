@@ -6,7 +6,7 @@ interface PromptCacheSaveOptions {
   onConfirm: () => void;
 }
 
-const CACHE_TOAST_ID = "cache-save-toast";
+export const CACHE_TOAST_ID = "cache-save-toast";
 
 function CacheToast({
   toastId,
@@ -63,4 +63,8 @@ export function promptCacheSave({ onConfirm }: PromptCacheSaveOptions) {
     position: "bottom-left",
     duration: 6000,
   });
+}
+
+export function dismissCacheToast() {
+  toast.dismiss(CACHE_TOAST_ID);
 }

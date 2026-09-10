@@ -36,10 +36,39 @@ export function getTableCache(tableKey: string): TableCacheEntry | null {
   return store[tableKey] ?? null;
 }
 
+// A column missing from the map is already treated as visible (see the
+// `?? true` reads elsewhere), so a `true` entry carries no information —
+// drop it before storing or comparing.
+function normalizeVisibility(visibility: VisibilityState): VisibilityState {
+  return Object.fromEntries(
+    Object.entries(visibility).filter(([, visible]) => !visible),
+  );
+}
+
 export function setTableCache(tableKey: string, entry: TableCacheEntry): void {
   const store = readStore();
-  store[tableKey] = entry;
+  store[tableKey] = {
+    ...entry,
+    columnVisibility: normalizeVisibility(entry.columnVisibility),
+  };
   writeStore(store);
+}
+
+// Whether `current` differs from what's cached (or, with nothing cached
+// yet, from `fallback`) — the single check that decides if the "save
+// changes?" toast should be open.
+export function isTableCacheDirty(
+  tableKey: string,
+  current: TableCacheEntry,
+  fallback: TableCacheEntry,
+): boolean {
+  const baseline = getTableCache(tableKey) ?? fallback;
+  return (
+    JSON.stringify(current.filtering) !== JSON.stringify(baseline.filtering) ||
+    JSON.stringify(current.sorting) !== JSON.stringify(baseline.sorting) ||
+    JSON.stringify(normalizeVisibility(current.columnVisibility)) !==
+      JSON.stringify(normalizeVisibility(baseline.columnVisibility))
+  );
 }
 
 export function removeTableCache(tableKey: string): void {

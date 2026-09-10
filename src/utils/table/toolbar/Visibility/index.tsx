@@ -6,8 +6,6 @@ import { cn } from "@/lib/utils";
 import type { Table } from "@tanstack/react-table";
 import { Check } from "lucide-react";
 import { useTableStore } from "../../stores/useTableStore";
-import { setTableCache } from "../../utils/cache-storage";
-import { promptCacheSave } from "../../utils/cache-toast";
 
 interface VisibilityProps<T> {
   open: boolean;
@@ -22,16 +20,6 @@ function Visibility<T>({ open, onClose, table }: VisibilityProps<T>) {
     (c) => columnVisibility[c.id] ?? true,
   ).length;
 
-  const saveCurrentToCache = () => {
-    const state = useTableStore.getState();
-    if (!state.tableKey) return;
-    setTableCache(state.tableKey, {
-      filtering: state.filtering,
-      sorting: state.sorting,
-      columnVisibility: state.columnVisibility,
-    });
-  };
-
   return (
     <Drawer open={open} onClose={onClose}>
       <div className="flex flex-col gap-4 h-full">
@@ -39,7 +27,7 @@ function Visibility<T>({ open, onClose, table }: VisibilityProps<T>) {
           <h2 className="text-base font-semibold text-text">
             مخفی/نمایش ستون‌ها
           </h2>
-          <span className="text-xs text-muted">
+          <span className="text-xs text-text-muted">
             {visibleCount} از {columns.length} نمایش داده می‌شود
           </span>
         </div>
@@ -75,7 +63,6 @@ function Visibility<T>({ open, onClose, table }: VisibilityProps<T>) {
                       disabled={!canHide}
                       onChange={(e) => {
                         column.toggleVisibility(e.target.checked);
-                        promptCacheSave({ onConfirm: saveCurrentToCache });
                       }}
                       className="peer sr-only"
                     />
@@ -107,11 +94,10 @@ function Visibility<T>({ open, onClose, table }: VisibilityProps<T>) {
         <div className="flex items-center justify-end gap-2 mt-2">
           <Button
             type="button"
-            variant="outlined"
+            variant="ghost"
             color="error"
             onClick={() => {
               table.toggleAllColumnsVisible(false);
-              promptCacheSave({ onConfirm: saveCurrentToCache });
             }}
           >
             مخفی کردن همه
@@ -121,7 +107,6 @@ function Visibility<T>({ open, onClose, table }: VisibilityProps<T>) {
             className="flex-1"
             onClick={() => {
               table.toggleAllColumnsVisible(true);
-              promptCacheSave({ onConfirm: saveCurrentToCache });
             }}
           >
             نمایش همه
