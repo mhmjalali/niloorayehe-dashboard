@@ -1,43 +1,55 @@
-const dots = [
-  { top: 72, left: 120, duration: 3.2, delay: 0 },
-  { top: 192, left: 312, duration: 4, delay: 0.6 },
-  { top: 312, left: 192, duration: 3.6, delay: 1.2 },
-  { top: 120, left: 456, duration: 4.4, delay: 0.3 },
-  { top: 384, left: 72, duration: 3, delay: 1.8 },
-  { top: 264, left: 504, duration: 3.8, delay: 0.9 },
-  { top: 64, left: 640, duration: 3.4, delay: 1.5 },
-  { top: 416, left: 288, duration: 4.2, delay: 0.2 },
-  { top: 160, left: 96, duration: 3.7, delay: 2.1 },
-  { top: 328, left: 608, duration: 3.1, delay: 0.7 },
-  { top: 480, left: 416, duration: 4.6, delay: 1.1 },
-  { top: 96, left: 352, duration: 3.9, delay: 1.9 },
-];
+"use client";
+
+import { motion, type Variants } from "motion/react";
+
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] } },
+};
+
+const fadeScale: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+  },
+};
 
 const BackgroundDecor = () => {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+    >
+      <motion.div
+        variants={fadeIn}
+        className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
       />
-
-      {dots.map((dot, i) => (
-        <span
-          key={i}
-          className="absolute h-[2px] w-[2px] rounded-full bg-accent shadow-[0_0_8px_2px_rgba(217,196,165,0.6)]"
-          style={{
-            top: dot.top,
-            left: dot.left,
-            animation: `blink ${dot.duration}s ease-in-out infinite`,
-            animationDelay: `${dot.delay}s`,
-          }}
-        />
-      ))}
-    </div>
+      <motion.div
+        variants={fadeIn}
+        className="absolute -right-16 -bottom-28 h-96 w-96 rounded-full bg-accent/15 blur-3xl"
+      />
+      <motion.div
+        variants={fadeScale}
+        className="absolute -end-10 top-16 h-48 w-48 rounded-full border border-dashed border-primary/15"
+      />
+      <motion.div
+        variants={fadeScale}
+        className="absolute -start-12 bottom-20 h-28 w-28 rotate-12 rounded-3xl border border-white/60 bg-white/40 shadow-sm backdrop-blur-md"
+      />
+      <motion.div
+        variants={fadeScale}
+        className="absolute end-16 bottom-40 h-20 w-20 -rotate-6 rounded-2xl border border-white/60 bg-white/40 shadow-sm backdrop-blur-md"
+      />
+    </motion.div>
   );
 };
 

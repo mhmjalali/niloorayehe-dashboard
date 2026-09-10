@@ -40,7 +40,11 @@ html[lang="en"] {
     ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 0.15; transform: scale(0.85); }
-  50% { opacity: 1; transform: scale(1.15); }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-text);
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-background) inset;
+  box-shadow: 0 0 0px 1000px var(--color-background) inset;
+  transition: background-color 9999s ease-in-out 0s;
 }
