@@ -3,6 +3,7 @@
 import Button from "@/components/ui/Button";
 import { Eye, EyeOff, Lock, User } from "lucide-react";
 import { motion, type Variants } from "motion/react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -20,6 +21,8 @@ const item: Variants = {
 };
 
 const LoginForm = () => {
+  const t = useTranslations("Auth.Login");
+  const tBrand = useTranslations("Sidebar.Header");
   const [showPassword, setShowPassword] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -41,26 +44,24 @@ const LoginForm = () => {
       <motion.div variants={item} className="flex items-center gap-3">
         <Image
           src="/logo/niloorayehe.svg"
-          alt="نیلو رایحه"
+          alt={tBrand("title")}
           width={40}
           height={40}
         />
         <span className="text-base font-bold text-primary">
-          نیلو رایحه ایرانیان
+          {tBrand("title")}
         </span>
       </motion.div>
 
       <motion.div variants={item}>
-        <h1 className="text-2xl font-bold text-text">ورود به داشبورد</h1>
-        <p className="mt-1.5 text-sm text-muted">
-          برای ادامه وارد حساب کاربری خود شوید
-        </p>
+        <h1 className="text-2xl font-bold text-text">{t("title")}</h1>
+        <p className="mt-1.5 text-sm text-muted">{t("subtitle")}</p>
       </motion.div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <motion.div variants={item} className="flex flex-col gap-1.5">
           <label htmlFor="username" className="text-xs font-medium text-text">
-            نام کاربری
+            {t("username")}
           </label>
           <div className="relative">
             <User
@@ -72,7 +73,7 @@ const LoginForm = () => {
               name="username"
               type="text"
               required
-              placeholder="نام کاربری خود را وارد کنید"
+              placeholder={t("usernamePlaceholder")}
               className={`${inputClass} ps-10`}
             />
           </div>
@@ -80,7 +81,7 @@ const LoginForm = () => {
 
         <motion.div variants={item} className="flex flex-col gap-1.5">
           <label htmlFor="password" className="text-xs font-medium text-text">
-            رمز عبور
+            {t("password")}
           </label>
           <div className="relative">
             <Lock
@@ -92,16 +93,14 @@ const LoginForm = () => {
               name="password"
               type={showPassword ? "text" : "password"}
               required
-              placeholder="رمز عبور خود را وارد کنید"
+              placeholder={t("passwordPlaceholder")}
               className={`${inputClass} ps-10 pe-10`}
             />
             <button
               type="button"
               onClick={() => setShowPassword((prev) => !prev)}
               className="absolute inset-y-0 inset-e-3 flex items-center text-muted transition-colors hover:text-text"
-              aria-label={
-                showPassword ? "پنهان کردن رمز عبور" : "نمایش رمز عبور"
-              }
+              aria-label={showPassword ? t("hidePassword") : t("showPassword")}
             >
               {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
             </button>
@@ -114,15 +113,15 @@ const LoginForm = () => {
               type="checkbox"
               className="h-4 w-4 rounded border-border accent-primary"
             />
-            مرا به خاطر بسپار
+            {t("rememberMe")}
           </label>
           <span className="cursor-pointer text-xs font-medium text-primary hover:underline">
-            فراموشی رمز عبور؟
+            {t("forgotPassword")}
           </span>
         </motion.div>
 
         <Button type="submit" size="lg" variants={item} className="mt-2 w-full">
-          ورود
+          {t("submit")}
         </Button>
       </form>
     </motion.div>

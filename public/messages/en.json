@@ -3,6 +3,30 @@
     "title": "Niloo Rayehe Dashboard",
     "description": "Content management and operations dashboard for the Niloo Rayehe website."
   },
+  "Auth": {
+    "Login": {
+      "title": "Sign in to dashboard",
+      "subtitle": "Sign in to your account to continue",
+      "username": "Username",
+      "usernamePlaceholder": "Enter your username",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "submit": "Sign in"
+    },
+    "Preview": {
+      "onlineUsers": "Online users",
+      "salesTrend": "Sales trend",
+      "team": "Team members",
+      "inbox": "Inbox",
+      "newOrder": "New order",
+      "newUser": "New user",
+      "newMessage": "New message"
+    }
+  },
   "Sidebar": {
     "Header": {
       "title": "Niloo Rayehe Iranian",

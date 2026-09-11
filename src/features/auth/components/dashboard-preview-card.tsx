@@ -2,11 +2,12 @@
 
 import { TrendingUp } from "lucide-react";
 import { motion, type Variants } from "motion/react";
+import { useTranslations } from "next-intl";
 
 const bars = [38, 62, 48, 78, 58, 92, 68];
 const ACTIVE_BAR = 5;
 
-const tasks = ["سفارش جدید", "کاربر جدید", "پیام جدید"];
+const taskKeys = ["newOrder", "newUser", "newMessage"] as const;
 const avatarColors = ["bg-primary", "bg-secondary", "bg-accent", "bg-muted"];
 
 const container: Variants = {
@@ -25,6 +26,8 @@ const item: Variants = {
 };
 
 const DashboardPreviewCard = () => {
+  const t = useTranslations("Auth.Preview");
+
   return (
     <motion.div
       variants={container}
@@ -38,7 +41,7 @@ const DashboardPreviewCard = () => {
       >
         <span className="h-2 w-2 rounded-full bg-success" />
         <div className="flex flex-col">
-          <span className="text-[10px] text-muted">کاربران آنلاین</span>
+          <span className="text-[10px] text-muted">{t("onlineUsers")}</span>
           <span className="text-sm font-bold text-text">•••</span>
         </div>
       </motion.div>
@@ -55,7 +58,7 @@ const DashboardPreviewCard = () => {
 
       <motion.div variants={item} className="rounded-2xl bg-white p-5 shadow-2xl">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-medium text-muted">روند فروش</span>
+          <span className="text-xs font-medium text-muted">{t("salesTrend")}</span>
           <TrendingUp size={14} className="text-success" />
         </div>
         <div className="mt-4 flex h-16 items-end gap-1.5">
@@ -73,7 +76,7 @@ const DashboardPreviewCard = () => {
         variants={item}
         className="flex items-center justify-between rounded-2xl bg-white p-4 shadow-2xl"
       >
-        <span className="text-xs font-medium text-muted">اعضای تیم</span>
+        <span className="text-xs font-medium text-muted">{t("team")}</span>
         <div className="flex -space-x-2 space-x-reverse">
           {avatarColors.map((color, i) => (
             <span
@@ -91,13 +94,13 @@ const DashboardPreviewCard = () => {
         variants={item}
         className="w-[85%] self-end rounded-2xl bg-white p-4 shadow-2xl"
       >
-        <span className="text-xs font-medium text-muted">کارتابل</span>
+        <span className="text-xs font-medium text-muted">{t("inbox")}</span>
         <div className="mt-2.5 flex flex-col gap-2">
-          {tasks.map((label) => (
-            <div key={label} className="flex items-center justify-between">
+          {taskKeys.map((key) => (
+            <div key={key} className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                <span className="text-xs text-text">{label}</span>
+                <span className="text-xs text-text">{t(key)}</span>
               </div>
               <span className="text-xs text-muted">•••</span>
             </div>

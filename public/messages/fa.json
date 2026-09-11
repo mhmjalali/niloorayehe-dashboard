@@ -3,6 +3,30 @@
     "title": "داشبورد نیلو رایحه",
     "description": "سامانه مدیریت محتوا و عملیات وب‌سایت نیلو رایحه."
   },
+  "Auth": {
+    "Login": {
+      "title": "ورود به داشبورد",
+      "subtitle": "برای ادامه وارد حساب کاربری خود شوید",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری خود را وارد کنید",
+      "password": "رمز عبور",
+      "passwordPlaceholder": "رمز عبور خود را وارد کنید",
+      "showPassword": "نمایش رمز عبور",
+      "hidePassword": "پنهان کردن رمز عبور",
+      "rememberMe": "مرا به خاطر بسپار",
+      "forgotPassword": "فراموشی رمز عبور؟",
+      "submit": "ورود"
+    },
+    "Preview": {
+      "onlineUsers": "کاربران آنلاین",
+      "salesTrend": "روند فروش",
+      "team": "اعضای تیم",
+      "inbox": "کارتابل",
+      "newOrder": "سفارش جدید",
+      "newUser": "کاربر جدید",
+      "newMessage": "پیام جدید"
+    }
+  },
   "Sidebar": {
     "Header": {
       "title": "نیلو رایحه ایرانیان",
