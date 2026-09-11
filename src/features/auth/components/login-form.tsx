@@ -17,7 +17,11 @@ const container: Variants = {
 
 const item: Variants = {
   hidden: { opacity: 0, y: 8 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.4, 0, 0.2, 1] } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.4, 0, 0.2, 1] },
+  },
 };
 
 const LoginForm = () => {
@@ -107,7 +111,10 @@ const LoginForm = () => {
           </div>
         </motion.div>
 
-        <motion.div variants={item} className="flex items-center justify-between">
+        <motion.div
+          variants={item}
+          className="flex items-center justify-between"
+        >
           <label className="flex items-center gap-2 text-xs text-muted">
             <input
               type="checkbox"

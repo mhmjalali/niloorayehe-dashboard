@@ -39,15 +39,15 @@ const BackgroundDecor = () => {
       />
       <motion.div
         variants={fadeScale}
-        className="absolute -end-10 top-16 h-48 w-48 rounded-full border border-dashed border-primary/15"
+        className="absolute -inset-e-10 top-16 h-48 w-48 rounded-full border border-dashed border-primary/15"
       />
       <motion.div
         variants={fadeScale}
-        className="absolute -start-12 bottom-20 h-28 w-28 rotate-12 rounded-3xl border border-white/60 bg-white/40 shadow-sm backdrop-blur-md"
+        className="absolute -inset-s-12 bottom-20 h-28 w-28 rotate-12 rounded-3xl border border-white/60 bg-white/40 shadow-sm backdrop-blur-md"
       />
       <motion.div
         variants={fadeScale}
-        className="absolute end-16 bottom-40 h-20 w-20 -rotate-6 rounded-2xl border border-white/60 bg-white/40 shadow-sm backdrop-blur-md"
+        className="absolute inset-e-16 bottom-40 h-20 w-20 -rotate-6 rounded-2xl border border-white/60 bg-white/40 shadow-sm backdrop-blur-md"
       />
     </motion.div>
   );

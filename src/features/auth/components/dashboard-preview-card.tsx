@@ -56,15 +56,20 @@ const DashboardPreviewCard = () => {
         <div className="ms-2 h-2 flex-1 rounded-full bg-text/10" />
       </motion.div>
 
-      <motion.div variants={item} className="rounded-2xl bg-white p-5 shadow-2xl">
+      <motion.div
+        variants={item}
+        className="rounded-2xl bg-white p-5 shadow-2xl"
+      >
         <div className="flex items-center justify-between">
-          <span className="text-xs font-medium text-muted">{t("salesTrend")}</span>
+          <span className="text-xs font-medium text-muted">
+            {t("salesTrend")}
+          </span>
           <TrendingUp size={14} className="text-success" />
         </div>
         <div className="mt-4 flex h-16 items-end gap-1.5">
           {bars.map((h, i) => (
             <div
-              key={i}
+              key={h}
               className={`flex-1 rounded-full ${i === ACTIVE_BAR ? "bg-primary" : "bg-primary/15"}`}
               style={{ height: `${h}%` }}
             />
@@ -80,7 +85,7 @@ const DashboardPreviewCard = () => {
         <div className="flex -space-x-2 space-x-reverse">
           {avatarColors.map((color, i) => (
             <span
-              key={i}
+              key={color}
               className={`h-7 w-7 rounded-full border-2 border-white ${color}`}
             />
           ))}
