@@ -15,7 +15,8 @@
       "hidePassword": "Hide password",
       "rememberMe": "Remember me",
       "forgotPassword": "Forgot password?",
-      "submit": "Sign in"
+      "submit": "Sign in",
+      "loginError": "Invalid username or password"
     },
     "Preview": {
       "onlineUsers": "Online users",

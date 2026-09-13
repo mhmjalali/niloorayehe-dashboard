@@ -15,7 +15,8 @@
       "hidePassword": "پنهان کردن رمز عبور",
       "rememberMe": "مرا به خاطر بسپار",
       "forgotPassword": "فراموشی رمز عبور؟",
-      "submit": "ورود"
+      "submit": "ورود",
+      "loginError": "نام کاربری یا رمز عبور اشتباه است"
     },
     "Preview": {
       "onlineUsers": "کاربران آنلاین",

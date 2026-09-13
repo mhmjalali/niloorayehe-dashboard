@@ -10,7 +10,7 @@ const Auth = () => {
       <div className="absolute inset-e-6 top-6 z-20">
         <LanguageSwitcher />
       </div>
-      <div className="relative z-10 flex w-full max-w-350 flex-col overflow-hidden rounded-2xl border border-text/10 bg-white shadow-2xl md:min-h-160 md:flex-row">
+      <div className="relative z-10 flex w-full max-w-350 flex-col overflow-hidden rounded-2xl border border-text/10 bg-white shadow-2xl md:min-h-[80vh] md:flex-row">
         <LoginForm />
         <BrandPanel />
       </div>

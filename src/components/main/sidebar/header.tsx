@@ -21,7 +21,7 @@ const Header = () => {
       )}
     >
       <div className="flex items-center gap-2.5 overflow-hidden">
-        <div className="shrink-0 bg-primary rounded-md p-0.5">
+        <div className="shrink-0 rounded-md p-0.5">
           <Image
             src="/logo/niloorayehe.svg"
             alt={t("logoAlt")}

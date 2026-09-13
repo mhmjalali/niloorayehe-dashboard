@@ -1,11 +1,14 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import { useLogin } from "@/features/auth/hooks/useLogin";
+import { useRouter } from "@/i18n/navigation";
 import { Eye, EyeOff, Lock, User } from "lucide-react";
 import { motion, type Variants } from "motion/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const inputClass =
   "w-full rounded-lg border border-text/15 bg-text/5 px-3 py-3 text-sm text-text outline-none transition-colors placeholder:text-muted hover:border-muted focus:border-secondary focus:bg-background";
@@ -28,14 +31,22 @@ const LoginForm = () => {
   const t = useTranslations("Auth.Login");
   const tBrand = useTranslations("Sidebar.Header");
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
+  const { mutate, isPending } = useLogin();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    console.log({
-      username: data.get("username"),
-      password: data.get("password"),
-    });
+    const username = data.get("username") as string;
+    const password = data.get("password") as string;
+
+    mutate(
+      { username, password },
+      {
+        onSuccess: () => router.push("/dashboard"),
+        onError: () => toast.error(t("loginError")),
+      },
+    );
   }
 
   return (
@@ -77,6 +88,7 @@ const LoginForm = () => {
               name="username"
               type="text"
               required
+              disabled={isPending}
               placeholder={t("usernamePlaceholder")}
               className={`${inputClass} ps-10`}
             />
@@ -97,6 +109,7 @@ const LoginForm = () => {
               name="password"
               type={showPassword ? "text" : "password"}
               required
+              disabled={isPending}
               placeholder={t("passwordPlaceholder")}
               className={`${inputClass} ps-10 pe-10`}
             />
@@ -127,7 +140,13 @@ const LoginForm = () => {
           </span>
         </motion.div>
 
-        <Button type="submit" size="lg" variants={item} className="mt-2 w-full">
+        <Button
+          type="submit"
+          size="lg"
+          variants={item}
+          loading={isPending}
+          className="mt-2 w-full"
+        >
           {t("submit")}
         </Button>
       </form>
