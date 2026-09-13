@@ -1,4 +1,5 @@
 import { api } from "@/lib/axios";
+import type { AxiosInstance } from "axios";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useTableStore } from "../stores/useTableStore";
 
@@ -12,15 +13,20 @@ interface PaginatedResponse<T> {
 interface UseTableDataOptions {
   endpoint: string;
   queryKey: string;
+  client?: AxiosInstance;
 }
 
-export function useTableData<T>({ endpoint, queryKey }: UseTableDataOptions) {
+export function useTableData<T>({
+  endpoint,
+  queryKey,
+  client = api,
+}: UseTableDataOptions) {
   const { pageIndex, pageSize, sorting, filtering } = useTableStore();
 
   const query = useQuery({
     queryKey: [queryKey, pageIndex, pageSize, sorting, filtering],
     queryFn: async () => {
-      const response = await api.get<PaginatedResponse<T>>(endpoint, {
+      const response = await client.get<PaginatedResponse<T>>(endpoint, {
         params: {
           start: pageIndex * pageSize,
           size: pageSize,

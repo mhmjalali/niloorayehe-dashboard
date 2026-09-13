@@ -3,7 +3,12 @@
 import { Toaster } from "sonner";
 
 const ToastProvider = () => {
-  return <Toaster />;
+  return (
+    <Toaster
+      position="top-center"
+      style={{ fontFamily: "var(--font-sans)" }}
+    />
+  );
 };
 
 export default ToastProvider;

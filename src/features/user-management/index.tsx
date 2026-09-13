@@ -1,5 +1,6 @@
 "use client";
 
+import { localApi } from "@/lib/axios";
 import DataTable from "@/utils/table";
 import TableActions from "./components/TableActions";
 import { getColumns, type RowData } from "./columns";
@@ -23,6 +24,9 @@ const UserManagement = () => {
         TableKey={"users"}
         TableActions={<TableActions />}
         defaultSorting={[{ id: "updated_at", desc: true }]}
+        // Dev-only fake data (src/app/api/user/route.ts) — swap back to the
+        // default client once a real backend endpoint exists for this table.
+        client={localApi}
       />
     </div>
   );

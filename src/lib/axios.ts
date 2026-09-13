@@ -47,3 +47,8 @@ const createInstance = (baseURL: string) => {
 };
 
 export const api = createInstance(process.env.NEXT_PUBLIC_API_URL ?? "");
+
+// No baseURL, so requests stay relative to the app's own origin. Use this
+// for local Next.js API routes (e.g. dev-only fake data) instead of `api`,
+// which always targets the real backend.
+export const localApi = createInstance("");

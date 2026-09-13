@@ -12,6 +12,7 @@ import { ChevronDown, ChevronsUpDown, ChevronUp } from "lucide-react";
 import { useTableStore } from "./stores/useTableStore";
 import Toolbar from "./toolbar";
 import { useTableData } from "./hooks/useTableData";
+import type { AxiosInstance } from "axios";
 import { TableLoadingBar, TableSkeleton } from "./table-loading";
 import Pagination from "./pagination";
 import { dismissCacheToast, promptCacheSave } from "./utils/cache-toast";
@@ -38,6 +39,7 @@ interface DataTableProps<T> {
   onReset?: () => void;
   TableActions?: React.ReactNode;
   defaultSorting?: SortingState;
+  client?: AxiosInstance;
 }
 
 function DataTable<T>({
@@ -46,6 +48,7 @@ function DataTable<T>({
   columns,
   TableActions,
   defaultSorting,
+  client,
 }: DataTableProps<T>) {
   const {
     pageIndex,
@@ -119,6 +122,7 @@ function DataTable<T>({
   const { data, total, refetch, isLoading, isFetching } = useTableData<T>({
     endpoint: TableUrl,
     queryKey: TableKey,
+    client,
   });
 
   const table = useReactTable({
