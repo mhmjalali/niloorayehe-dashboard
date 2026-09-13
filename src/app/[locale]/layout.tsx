@@ -77,7 +77,11 @@ export default async function LocaleLayout({
   const { direction } = localeConfig[locale as keyof typeof localeConfig];
 
   return (
-    <html lang={locale} dir={direction} className={`h-full ${morabba.variable}`}>
+    <html
+      lang={locale}
+      dir={direction}
+      className={`h-full ${morabba.variable}`}
+    >
       <body className="min-h-full flex flex-col">
         <NextTopLoader color="var(--color-accent)" height={3} />
         <ToastProvider />

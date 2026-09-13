@@ -83,7 +83,7 @@ const DashboardPreviewCard = () => {
       >
         <span className="text-xs font-medium text-muted">{t("team")}</span>
         <div className="flex -space-x-2 space-x-reverse">
-          {avatarColors.map((color, i) => (
+          {avatarColors.map((color) => (
             <span
               key={color}
               className={`h-7 w-7 rounded-full border-2 border-white ${color}`}
